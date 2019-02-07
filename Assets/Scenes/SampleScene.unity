@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 219845478}
   - component: {fileID: 219845480}
   - component: {fileID: 219845479}
+  - component: {fileID: 219845481}
   m_Layer: 5
   m_Name: HpBar
   m_TagString: Untagged
@@ -256,6 +257,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219845477}
   m_CullTransparentMesh: 0
+--- !u!114 &219845481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219845477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0da153b8560f9145b14f570b36f8935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 10
+  currentHP: 0
+  Health: {fileID: 1043641509}
 --- !u!1 &395837550
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +283,7 @@ GameObject:
   - component: {fileID: 395837551}
   - component: {fileID: 395837553}
   - component: {fileID: 395837552}
+  - component: {fileID: 395837554}
   m_Layer: 5
   m_Name: Xpbar
   m_TagString: Untagged
@@ -284,7 +301,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 691719708}
   m_Father: {fileID: 1668638639}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -330,6 +348,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 395837550}
   m_CullTransparentMesh: 0
+--- !u!114 &395837554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395837550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6968028d34a6944c9bd46be1d2f03da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xpForNextLevel: 10
+  currentXP: 0
+  XP: {fileID: 691719709}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,32 +458,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40cca8aa69557b147827fb970fda618b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 897749422}
-  rotSpeed: 1.5
-  _rotY: 0
-  _offset: {x: 0, y: 0, z: 0}
 --- !u!1 &691719707
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,16 +483,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691719707}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1668638639}
-  m_RootOrder: 2
+  m_Father: {fileID: 395837551}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -402, y: 309}
+  m_AnchoredPosition: {x: 1, y: 0}
   m_SizeDelta: {x: 219, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &691719709
@@ -557,13 +564,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724c8fad3007ce2438748137bea9e95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 534669905}
   rotSpeed: 15
   moveSpeed: 6
   jumpSpeed: 15
   gravity: -9.8
   terminalVelocity: -10
   minFall: -1.5
+  target: {fileID: 534669905}
 --- !u!143 &897749419
 CharacterController:
   m_ObjectHideFlags: 0
@@ -742,17 +749,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612580663}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e81b922a0e2955e41a219d0b2a671015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 10
-  currentHP: 0
   Hp: {fileID: 1043641509}
-  xpForNextLevel: 10
-  currentXP: 3
   Xp: {fileID: 691719709}
+  inventory: {fileID: 0}
 --- !u!64 &1612580666
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -918,7 +922,6 @@ RectTransform:
   m_Children:
   - {fileID: 219845478}
   - {fileID: 395837551}
-  - {fileID: 691719708}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -5,22 +5,22 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 
 
-public class RelativeMoment : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public float rotSpeed = 15.0f;
     public float moveSpeed = 6.0f;
     public float jumpSpeed = 15.0f;
     public float gravity = -9.8f;
     public float terminalVelocity = -10.0f;
-    public float minFall = -1.5f;
+    public float onGroundFall = -1.5f;
     private float _vertSpeed=-1.5f;
     private CharacterController _charactercontroller;
     private Vector3 movement = Vector3.zero;
     private Vector3 rotate = Vector3.zero;
-    private bool hitGround = false;
+    private bool onGround = false;
     private RaycastHit hit;
     [SerializeField] private Transform target;
-    private ControllerColliderHit _contact;
+    private ControllerColliderHit colliderOnGround;
     private float verInput;
     private float horInput;
     private void Start()
@@ -53,9 +53,9 @@ public class RelativeMoment : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector3.down, out hit))
         {
             float chek = (_charactercontroller.height + _charactercontroller.radius) / 2;
-            hitGround = hit.distance < chek;
+            onGround = hit.distance < chek;
         }
-        if (hitGround)
+        if (onGround)
         {
             if (Input.GetButton("Jump"))
             {
@@ -63,7 +63,7 @@ public class RelativeMoment : MonoBehaviour
             }
             else
             {
-                _vertSpeed = minFall;
+                _vertSpeed = onGroundFall;
             }
 
         }
@@ -74,21 +74,21 @@ public class RelativeMoment : MonoBehaviour
             {
                 _vertSpeed = terminalVelocity;
             }
-            if (_contact != null)
-            {
+          //  if (colliderOnGround != null)
+         //   {
                
             }
             if (_charactercontroller.isGrounded)
             {
-                if (Vector3.Dot(movement, _contact.normal) < 0)
+                if (Vector3.Dot(movement, colliderOnGround.normal) < 0)
                 {
-                    movement = _contact.normal * moveSpeed;
+                    movement = colliderOnGround.normal * moveSpeed;
                 }
                 else
                 {
-                    movement += _contact.normal * moveSpeed;
+                    movement += colliderOnGround.normal * moveSpeed;
                 }
-            }
+         //   }
         }
         movement.y = _vertSpeed;
         movement *= Time.deltaTime;
@@ -96,10 +96,10 @@ public class RelativeMoment : MonoBehaviour
         target.transform.Translate(movement.x, 0, movement.z ,Space.World);
 
     }
-    
+
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        _contact = hit;
+        colliderOnGround = hit;
     }
   
 }
