@@ -6,6 +6,7 @@ public class PlayerStats : MonoBehaviour
     public static int strenght = 10;
     public static int currentHP;
     public static int xp=0;
+    private static int lvl=1;
     private static int maxHP;
     private static int xpforNextLvl=10;
     private static int statsPoint;
@@ -39,7 +40,7 @@ public class PlayerStats : MonoBehaviour
     {
         GainStatsPoint(statsPointPerLvl);
         GainAbilityPoint(abilityPointPerLvl);
-
+        lvl++;
     }
     public void BarFill(Image image, float current, float max)
     {
