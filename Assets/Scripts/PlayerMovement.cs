@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private ControllerColliderHit colliderOnGround;
     private float verInput;
     private float horInput;
+    private float rangeForFloor;
     private void Start()
     {
         _charactercontroller = GetComponent<CharacterController>();
@@ -42,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Physics.Raycast(transform.position, Vector3.down, out hit))
         {
-            float chek = (_charactercontroller.height + _charactercontroller.radius) / 2;
+            float rangeForFloor = (_charactercontroller.height + _charactercontroller.radius) / 2;
 onGround = hit.distance<chek;
         }
         if (onGround)
