@@ -269,9 +269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0da153b8560f9145b14f570b36f8935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 10
-  currentHP: 0
-  Health: {fileID: 1043641509}
 --- !u!1 &395837550
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,9 +357,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6968028d34a6944c9bd46be1d2f03da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xpForNextLevel: 10
-  currentXP: 0
-  XP: {fileID: 691719709}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,12 +559,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotSpeed: 15
-  moveSpeed: 6
+  moveSpeedHor: 6
   jumpSpeed: 15
   gravity: -9.8
   terminalVelocity: -10
-  minFall: -1.5
-  target: {fileID: 534669905}
+  onGroundFall: -1.5
+  playerCamera: {fileID: 534669905}
 --- !u!143 &897749419
 CharacterController:
   m_ObjectHideFlags: 0
@@ -582,8 +576,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.14
-  m_Radius: 0.5
+  m_Height: 1.3
+  m_Radius: 0.7
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -754,8 +748,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81b922a0e2955e41a219d0b2a671015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: {fileID: 1043641509}
-  Xp: {fileID: 691719709}
   inventory: {fileID: 0}
 --- !u!64 &1612580666
 MeshCollider:

@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector3.down, out hit))
         {
             float rangeForFloor = (_charactercontroller.height + _charactercontroller.radius) / 2;
-onGround = hit.distance<rangeForFloor;
+            onGround = hit.distance<rangeForFloor;
         }
         if (onGround)
         {
