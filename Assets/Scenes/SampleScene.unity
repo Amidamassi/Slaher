@@ -1518,7 +1518,6 @@ GameObject:
   - component: {fileID: 668734664}
   - component: {fileID: 668734663}
   - component: {fileID: 668734662}
-  - component: {fileID: 668734666}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1553,6 +1552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ac34f1c744dec418b2469c271cbc62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemsList: {fileID: 0}
 --- !u!114 &668734664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1579,34 +1579,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &668734666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 668734661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c34c0aef2ffc2f479cb11d27eabe567, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseClasses:
-  - className: Archer
-    strenght: 5
-    dextrity: 15
-    symbol: {fileID: 21300000, guid: d7bfdc419e29c224db97c7bd8fa6e7fb, type: 3}
-    description: "\u0443 \u043C\u0435\u043D\u044F \u043B\u0443\u043A"
-  - className: Spearman
-    strenght: 8
-    dextrity: 12
-    symbol: {fileID: 21300000, guid: 94a8b5a89f6eaa64193f98951c0581e7, type: 3}
-    description: "\u0443 \u043C\u0435\u043D\u044F \u043A\u043E\u043F\u044C\u0451"
-  - className: Warrior
-    strenght: 12
-    dextrity: 8
-    symbol: {fileID: 21300000, guid: f635032a8f8109b4d9b409225a4236cd, type: 3}
-    description: "\u0443 \u043C\u0435\u043D\u044F \u043C\u0435\u0447 \u0438 \u0449\u0438\u0442"
 --- !u!1 &671435059 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 22106222d031dc641adeb11e6d18648c,
@@ -2010,7 +1982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d354fb7bcfbf5bf428136a596121424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classList: {fileID: 668734666}
+  classList: {fileID: 0}
   classes: {fileID: 824142921}
   symbol: {fileID: 904762482}
   description: {fileID: 684495274}
@@ -2412,6 +2384,18 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &913079026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913079023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d03cdc02daee6c4795e6cb0c39b1414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &913079030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5173,6 +5157,18 @@ NavMeshAgent:
   m_BaseOffset: 0.05
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1984156946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984156943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d03cdc02daee6c4795e6cb0c39b1414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1984156949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5410,6 +5406,89 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090820007}
   m_CullTransparentMesh: 0
+--- !u!1 &2141405970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2141405973}
+  - component: {fileID: 2141405972}
+  - component: {fileID: 2141405971}
+  m_Layer: 0
+  m_Name: GameInfo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2141405971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141405970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71fdad874fe20b4f94dcee32a2e46d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - itemName: Iron
+    inventorySprite: {fileID: 21300000, guid: 8d5d66e009f6d934bba0555dcd3afe34, type: 3}
+    weight: 1
+    description: Iron
+    dropItem: {fileID: 908121309}
+  - itemName: whaty
+    inventorySprite: {fileID: 21300000, guid: 8d5d66e009f6d934bba0555dcd3afe34, type: 3}
+    weight: 1
+    description: Iron
+    dropItem: {fileID: 908121309}
+--- !u!114 &2141405972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141405970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c34c0aef2ffc2f479cb11d27eabe567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseClasses:
+  - className: Archer
+    strenght: 5
+    dextrity: 15
+    symbol: {fileID: 21300000, guid: d7bfdc419e29c224db97c7bd8fa6e7fb, type: 3}
+    description: "\u0443 \u043C\u0435\u043D\u044F \u043B\u0443\u043A"
+  - className: Spearman
+    strenght: 8
+    dextrity: 12
+    symbol: {fileID: 21300000, guid: 94a8b5a89f6eaa64193f98951c0581e7, type: 3}
+    description: "\u0443 \u043C\u0435\u043D\u044F \u043A\u043E\u043F\u044C\u0451"
+  - className: Warrior
+    strenght: 12
+    dextrity: 8
+    symbol: {fileID: 21300000, guid: f635032a8f8109b4d9b409225a4236cd, type: 3}
+    description: "\u0443 \u043C\u0435\u043D\u044F \u043C\u0435\u0447 \u0438 \u0449\u0438\u0442"
+--- !u!4 &2141405973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141405970}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.39464808, y: -1.9050045, z: 1.916543}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6109991421951878232
 PrefabInstance:
   m_ObjectHideFlags: 0

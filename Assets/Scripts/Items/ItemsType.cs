@@ -3,7 +3,8 @@ using UnityEditor;
 
 public enum ItemsType
 {
-    weapon,
+    meleeWeapon,
+    rangeWeapon,
     armor,
     consumable,
     resourse

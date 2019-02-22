@@ -4,9 +4,11 @@ using System;
 [Serializable]
 public class Item 
 {
+    public string itemName;
+    public virtual ItemsType ItemType { get; set; }
     public int id { get; private set; }
     public Sprite inventorySprite;
     public float weight;
-    public GameObject prefab;
     public string description;
+    public GameObject dropItem;
 }

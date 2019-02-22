@@ -8,6 +8,6 @@ public class CollectableItem : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Managers.Inventory.AddItem(ItemName);
-        Destroy(this.gameObject,0.5f);
+        Destroy(gameObject);
     }
 }
