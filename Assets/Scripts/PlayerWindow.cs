@@ -3,6 +3,4 @@ using System.Collections;
 
 public class PlayerWindow : MonoBehaviour
 {
-    
-
 }
