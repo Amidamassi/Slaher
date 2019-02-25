@@ -46,46 +46,7 @@ public class PlayerMovement : MonoBehaviour
             Quaternion direction = Quaternion.LookRotation(playerMovement);
             transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotSpeed * Time.deltaTime);
         }
-/*     if (Physics.Raycast(transform.position, Vector3.down, out hit))
-        {
-            float rangeForFloor = (_charactercontroller.height + _charactercontroller.radius) / 3;
-            onGround = hit.distance<rangeForFloor;
-        }
-        if (onGround)
-        {
-            if (Input.GetButton("Jump"))
-            {
-                _vertSpeed = jumpSpeed;
-            }
-            else
-            {
-                _vertSpeed = onGroundFall;
-            }
 
-        }
-        else
-        {
-            _vertSpeed += gravity * 5 * Time.deltaTime;
-            if (_vertSpeed < terminalVelocity)
-            {
-                _vertSpeed = terminalVelocity;
-            }
-            if (colliderOnGround != null)
-            {
-
-            }
-            if (_charactercontroller.isGrounded)
-            {
-                if (Vector3.Dot(playerMovement, colliderOnGround.normal) < 0)
-                {
-                    playerMovement = colliderOnGround.normal * moveSpeedHor;
-                }
-                else
-                {
-                    playerMovement += colliderOnGround.normal * moveSpeedHor;
-                }
-            }
-        }*/
         playerMovement.y = _vertSpeed;
         playerMovement *= Time.deltaTime;
         _charactercontroller.Move(playerMovement);

@@ -7,7 +7,7 @@ public enum ItemsType
     rangeWeapon,
     armor,
     consumable,
-    resourse
+    resource
 }
 
  

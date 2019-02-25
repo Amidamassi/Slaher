@@ -8,9 +8,6 @@ using UnityEngine.AI;
     [SerializeField] Transform player;
     private bool nearPlayer;
     NavMeshAgent agent;
-    /* private Vector3 moveDirection;
-     private float moveSpeed=3;
-     private bool nearPlayer;*/
     private void Start()
     {
         agent = this.GetComponent<NavMeshAgent>();
@@ -23,12 +20,6 @@ using UnityEngine.AI;
         agent.destination=player.position ;
         agent.transform.LookAt(agent.nextPosition);
 
-        /*    if (!nearPlayer)
-            {
-                moveDirection = player.transform.position - this.transform.position;
-                moveDirection.Normalize();
-                this.transform.position += moveDirection * moveSpeed * Time.deltaTime;
-            }*/
     }
     void OnTriggerEnter()
     {
