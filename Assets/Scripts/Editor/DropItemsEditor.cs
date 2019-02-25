@@ -31,14 +31,14 @@ public class DropItemsEditor : Editor
             chosenItem = EditorGUILayout.Popup(chosenItem, itemsName);
             dropItems.dropList[items[chosenItem]] = EditorGUILayout.FloatField("Процент выпадения", dropItems.dropList[items[chosenItem]]);
         }
-    /*   if (GUILayout.Button("Добавить предмет")) dropItems.dropList.Add(Managers.itemlist.items[newItemInd], newItemChance);
-        newItemChance= EditorGUILayout.FloatField("Процент выпадения предмета", newItemChance);
-         string[] itemsListName = new string[Managers.itemlist.items.Count];
-       
-        for (int j = 0; j < Managers.itemlist.items.Count; j++)
-       {
-          itemsListName[j] = Managers.itemlist.items[j].itemName;
-        }
-        newItemInd = EditorGUILayout.Popup(newItemInd, itemsListName);
-    }*/
+        /*   if (GUILayout.Button("Добавить предмет")) dropItems.dropList.Add(Managers.itemlist.items[newItemInd], newItemChance);
+            newItemChance= EditorGUILayout.FloatField("Процент выпадения предмета", newItemChance);
+             string[] itemsListName = new string[Managers.itemlist.items.Count];
+
+            for (int j = 0; j < Managers.itemlist.items.Count; j++)
+           {
+              itemsListName[j] = Managers.itemlist.items[j].itemName;
+            }
+            newItemInd = EditorGUILayout.Popup(newItemInd, itemsListName);*/
+    }
 }
