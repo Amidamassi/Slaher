@@ -16,6 +16,7 @@ public class DropItemsEditor : Editor
     }
     public override void OnInspectorGUI()
     {
+        
         if (dropItems.dropList != null)
         {
             string[] itemsName = new string[dropItems.dropList.Count];
@@ -30,7 +31,7 @@ public class DropItemsEditor : Editor
             chosenItem = EditorGUILayout.Popup(chosenItem, itemsName);
             dropItems.dropList[items[chosenItem]] = EditorGUILayout.FloatField("Процент выпадения", dropItems.dropList[items[chosenItem]]);
         }
-       if (GUILayout.Button("Добавить предмет")) dropItems.dropList.Add(Managers.itemlist.items[newItemInd], newItemChance);
+    /*   if (GUILayout.Button("Добавить предмет")) dropItems.dropList.Add(Managers.itemlist.items[newItemInd], newItemChance);
         newItemChance= EditorGUILayout.FloatField("Процент выпадения предмета", newItemChance);
          string[] itemsListName = new string[Managers.itemlist.items.Count];
        
@@ -39,5 +40,5 @@ public class DropItemsEditor : Editor
           itemsListName[j] = Managers.itemlist.items[j].itemName;
         }
         newItemInd = EditorGUILayout.Popup(newItemInd, itemsListName);
-    }
+    }*/
 }

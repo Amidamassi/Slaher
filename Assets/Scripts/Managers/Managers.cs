@@ -8,8 +8,8 @@ public class Managers : MonoBehaviour
 {
     public static PlayerManager Player { get; private set; }
     public static InventoryManager Inventory { get; private set; }
-    [SerializeField] public static ItemsList itemlist;
-    [SerializeField] public static  ClassList classList;
+    [SerializeField] public  ItemsList itemlist;
+    [SerializeField] public  ClassList classList;
     private List<IGameManager> startSequence;
     private void Awake()
     {
