@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class DropItems : MonoBehaviour
 {
-    [SerializeField] public Dictionary<Item, float> dropList;
+    [SerializeField] public Dictionary<Item, float> dropList=new Dictionary<Item, float>();
 
     private void OnDestroy()
     {if(dropList!=null)

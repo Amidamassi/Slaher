@@ -31,7 +31,10 @@ public class BaseClassEditor : Editor
             EditorGUILayout.LabelField("Символ Класса");
             classList.baseClasses[chosenClass].symbol = (Sprite)EditorGUILayout.ObjectField(classList.baseClasses[chosenClass].symbol,typeof(Sprite),false);
 
-            if (GUILayout.Button("Удалить класс")) { classList.baseClasses.Remove(classList.baseClasses[chosenClass]); }
+            if (GUILayout.Button("Удалить класс")) {
+                classList.baseClasses.Remove(classList.baseClasses[chosenClass]);
+                chosenClass=0  ;
+            }
         }
         else
         {

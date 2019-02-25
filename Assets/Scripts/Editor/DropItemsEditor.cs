@@ -6,18 +6,20 @@ using UnityEditor;
 public class DropItemsEditor : Editor
 {
     private int chosenItem;
-    
+    private ItemsList itemsList ;
     private DropItems dropItems;
     private int newItemInd;
     private float newItemChance;
     private void OnEnable()
     {
+        
         dropItems = (DropItems)target;
+        itemsList = dropItems.GetComponent<ItemsList>() as ItemsList;
     }
     public override void OnInspectorGUI()
     {
-        
-        if (dropItems.dropList != null)
+
+        if (dropItems.dropList.Count != 0)
         {
             string[] itemsName = new string[dropItems.dropList.Count];
             int i = 0;
@@ -26,19 +28,26 @@ public class DropItemsEditor : Editor
             {
                 itemsName[i] = keyValuePair.Key.itemName;
                 items[i] = keyValuePair.Key;
-                Debug.Log("wtf");
+                i++;
             }
             chosenItem = EditorGUILayout.Popup(chosenItem, itemsName);
             dropItems.dropList[items[chosenItem]] = EditorGUILayout.FloatField("Процент выпадения", dropItems.dropList[items[chosenItem]]);
-        }
-        /*   if (GUILayout.Button("Добавить предмет")) dropItems.dropList.Add(Managers.itemlist.items[newItemInd], newItemChance);
-            newItemChance= EditorGUILayout.FloatField("Процент выпадения предмета", newItemChance);
-             string[] itemsListName = new string[Managers.itemlist.items.Count];
-
-            for (int j = 0; j < Managers.itemlist.items.Count; j++)
-           {
-              itemsListName[j] = Managers.itemlist.items[j].itemName;
+            if (GUILayout.Button("Удалить предмет"))
+            {
+                dropItems.dropList.Remove(items[chosenItem]);
+                chosenItem = 0;
+               
             }
-            newItemInd = EditorGUILayout.Popup(newItemInd, itemsListName);*/
+        }
+            newItemChance = EditorGUILayout.FloatField("Процент выпадения предмета", newItemChance);
+            string[] itemsListName = new string[itemsList.items.Count];
+
+            for (int j = 0; j < itemsList.items.Count; j++)
+            {
+                itemsListName[j] = itemsList.items[j].itemName;
+            }
+            newItemInd = EditorGUILayout.Popup(newItemInd, itemsListName);
+            if (GUILayout.Button("Добавить предмет")) dropItems.dropList.Add(itemsList.items[newItemInd], newItemChance);
+        
     }
 }
