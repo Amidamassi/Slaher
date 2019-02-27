@@ -11,8 +11,10 @@ public class BasicEnemy
     public float atackDamage;
     public float speed;
     public float atackSpeed;
+    public DropItems dropItems = new DropItems();
     public BasicEnemy()
     {
         enemyName = "Name";
+
     }
 }

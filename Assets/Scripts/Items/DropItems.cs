@@ -5,19 +5,15 @@ using System.Collections.Generic;
 public class DropItems : MonoBehaviour
 {
     [SerializeField] public Dictionary<Item, float> dropList=new Dictionary<Item, float>();
-
-    private void OnDestroy()
-    {if(dropList!=null)
-     foreach(KeyValuePair <Item,float> keyValuePair in dropList)
-            {
-               if(keyValuePair.Value > Random.Range(0, 100))
-                {
-                    createDrop(keyValuePair.Key);
-                }
-            }
-    }
-    private void createDrop(Item item)
+    public static void Drop(DropItems drop)
     {
-        Instantiate(item.dropItem);
+        foreach (KeyValuePair<Item, float> item in drop.dropList)
+        {
+            if (Random.Range(0, 100) <= item.Value)
+            {
+                Instantiate(item.Key.dropItem);
+            }
+        }
     }
+
 }
