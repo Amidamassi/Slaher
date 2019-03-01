@@ -1382,7 +1382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0.5067862, y: -0, z: -0, w: 0.86207175}
-  m_LocalPosition: {x: 0, y: 17.396393, z: -6.97725}
+  m_LocalPosition: {x: -53, y: 17.396393, z: -14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1561,7 +1561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7281a575d47f9964e8aa5444b25c737f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1446620652}
 --- !u!195 &671435064
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1576,7 +1576,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1584,18 +1584,6 @@ NavMeshAgent:
   m_BaseOffset: 0.04822871
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &671435065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 671435059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc4f4cd084ff4f9439d93b3cd155e38a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &671435066
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3027,15 +3015,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400044, guid: 8ad6ebcb7d97dec4b886b2bbf3d75896, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -53.84
+      value: -53
       objectReference: {fileID: 0}
     - target: {fileID: 400044, guid: 8ad6ebcb7d97dec4b886b2bbf3d75896, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5963926
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400044, guid: 8ad6ebcb7d97dec4b886b2bbf3d75896, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.8
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 400044, guid: 8ad6ebcb7d97dec4b886b2bbf3d75896, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4805,11 +4793,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 22106222d031dc641adeb11e6d18648c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.22
+      value: -26.7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 22106222d031dc641adeb11e6d18648c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.42
+      value: 3.1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 22106222d031dc641adeb11e6d18648c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5134,9 +5122,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2141405970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d03cdc02daee6c4795e6cb0c39b1414, type: 3}
+  m_Script: {fileID: 11500000, guid: 004125fb32d2b4a43b969615f6acd0fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ia: 0
 --- !u!114 &2141405975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5149,6 +5138,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd70b9a7cc9e87b4490bd0372924a53d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies:
+  - enemyID: 22
+    enemyName: 2
+    xp: 22
+    maxHP: 2
+    atackDamage: 2
+    speed: 2
+    atackSpeed: 2
+  - enemyID: 1
+    enemyName: 1
+    xp: 1
+    maxHP: 1
+    atackDamage: 1
+    speed: 1
+    atackSpeed: 1
 --- !u!1001 &525108817203179606
 PrefabInstance:
   m_ObjectHideFlags: 0

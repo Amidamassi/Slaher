@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-[CustomEditor(typeof(DropItems))]
+[CustomEditor(typeof(DropItemsList))]
 public class DropItemsEditor : Editor
 {
     private int chosenItem;
     private ItemsList itemsList ;
-    private DropItems dropItems;
+    private DropItemsList dropItems;
     private int chosenEnemy;
     private EnemyList enemyList;
     private int newItemInd;
@@ -15,7 +15,7 @@ public class DropItemsEditor : Editor
     private void OnEnable()
     {
         
-        dropItems = (DropItems)target;
+        dropItems = (DropItemsList)target;
         itemsList = dropItems.GetComponent<ItemsList>() as ItemsList;
         enemyList = dropItems.GetComponent<EnemyList>() as EnemyList;
   
@@ -29,25 +29,27 @@ public class DropItemsEditor : Editor
             {
                 enemyNames[i] = enemyList.enemies[i].enemyName;
             }
+           
             chosenEnemy = EditorGUILayout.Popup(chosenEnemy, enemyNames);
-            if (enemyList.enemies[chosenEnemy].dropItems.dropList.Count != 0)
+
+            if (enemyList.enemies[chosenEnemy].dropItems.Count != 0)
             {
-                string[] itemsName = new string[enemyList.enemies[chosenEnemy].dropItems.dropList.Count];
+                string[] itemsName = new string[enemyList.enemies[chosenEnemy].dropItems.Count];
                 int i = 0;
-                Item[] items = new Item[enemyList.enemies[chosenEnemy].dropItems.dropList.Count];
-                foreach (KeyValuePair<Item, float> keyValuePair in enemyList.enemies[chosenEnemy].dropItems.dropList)
+                Item[] items = new Item[enemyList.enemies[chosenEnemy].dropItems.Count];
+                foreach (KeyValuePair<Item, float> keyValuePair in enemyList.enemies[chosenEnemy].dropItems)
                 {
                     itemsName[i] = keyValuePair.Key.itemName;
                     items[i] = keyValuePair.Key;
                     i++;
                 }
                 chosenItem = EditorGUILayout.Popup(chosenItem, itemsName);
-                enemyList.enemies[chosenEnemy].dropItems.dropList[items[chosenItem]] =
+                enemyList.enemies[chosenEnemy].dropItems[items[chosenItem]] =
                     EditorGUILayout.FloatField("Процент выпадения",
-                    enemyList.enemies[chosenEnemy].dropItems.dropList[items[chosenItem]]);
+                    enemyList.enemies[chosenEnemy].dropItems[items[chosenItem]]);
                 if (GUILayout.Button("Удалить предмет"))
                 {
-                    enemyList.enemies[chosenEnemy].dropItems.dropList.Remove(items[chosenItem]);
+                    enemyList.enemies[chosenEnemy].dropItems.Remove(items[chosenItem]);
                     chosenItem = 0;
 
                 }
@@ -62,7 +64,7 @@ public class DropItemsEditor : Editor
             }
             newItemInd = EditorGUILayout.Popup(newItemInd, itemsListName);
             if (GUILayout.Button("Добавить предмет"))
-                enemyList.enemies[chosenEnemy].dropItems.dropList.Add(itemsList.items[newItemInd], newItemChance);
+                enemyList.enemies[chosenEnemy].dropItems.Add(itemsList.items[newItemInd], newItemChance);
         }
         else
         {
